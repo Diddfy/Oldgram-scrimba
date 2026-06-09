@@ -35,3 +35,40 @@ const avatarEl = document.getElementById("doc-el")
 const postEl = document.getElementById("post-el")
 const commentEl = document.getElementById("comment-el") 
 const likeEl = document.getElementById("like-el")
+const ropeEl = document.getElementById("post")
+
+
+
+function renderPosts(postss) {
+    let posty = ''
+
+    for (let post of postss) {
+        posty += `
+                <div class="top">
+                    <img id="post-el" class="profile side" src="${post.avatar}" alt="Profile Picture">
+                    <div class="space-ele">
+                        <h2 id="name-el">${post.name}</h2>
+                        <h3 id="loc-el">${post.location}</h3>
+                    </div>
+                </div>
+                <div class="middle">
+                    <img class="main-pic" src="${post.post}" alt="Profile Picture">
+                </div>
+                <div>
+                    <div>
+                        <img class="icon" src="images/icon-heart.png" alt="Profile Picture">
+                        <img class="icon" src="images/icon-comment.png" alt="Profile Picture">
+                        <img class="icon" src="images/icon-dm.png" alt="Profile Picture">
+                    </div>
+                    <div>
+                        <p id="like-el">${post.likes} Likes</p>
+                        <p id="comment-el"><span id="user-el">${post.username}</span> ${post.comment}</p>
+                    </div>
+                </div>
+        `
+
+}
+        ropeEl.innerHTML = posty
+}
+
+renderPosts(posts)
